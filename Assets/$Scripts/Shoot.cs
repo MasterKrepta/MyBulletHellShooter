@@ -4,22 +4,19 @@ using UnityEngine;
 
 public class Shoot : MonoBehaviour {
 
-    public Transform bulletPrefab;
     public float shootDelay = .5f;
-	// Use this for initialization
-	void Start () {
-        Invoke("ShootForward", shootDelay);
-    }
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    
+    void Start () {
 
+        InvokeRepeating("ShootForward", shootDelay, shootDelay);
+    }
     void ShootForward() {
-        if (bulletPrefab != null) {
-            Instantiate(bulletPrefab, transform.position, transform.rotation);
-        }
-        Invoke("ShootForward", shootDelay);
+        GameObject obj = ObjectPooler.current.GetPooledObjects();
+
+        if (obj == null) return;
+            obj.transform.position = transform.position;
+            obj.transform.rotation = transform.rotation;
+            obj.transform.gameObject.SetActive(true);
+        
     }
 }
