@@ -3,36 +3,48 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class GameManager : MonoBehaviour {
+public  class GameManager : MonoBehaviour {
+    
     public float pointModifier = 1.0f;
     public Text txtPoints;
     private int currentPoints;
     private int highScore = 0;
-    public delegate void PlayerEvents();
+    public delegate void PlayerEvents(int pointsToGive);
     public static event PlayerEvents EarnedPoints;
-    
-    
 
-#region Singleton
-    static private GameManager _singleton = null;
-    static private GameManager singleton {
-        get {
-            if (_singleton == null) {
-                InstantiateSingleton();
-            }
-            return _singleton;
+
+
+    #region Singleton
+    private static GameManager instance = null;
+    public static GameManager Instance {
+        get { return instance; }
+    }
+
+    void Awake() {
+        if (instance != null && instance != this) {
+            Destroy(this.gameObject);
+            return;
         }
+        else {
+            instance = this;
+        }
+        DontDestroyOnLoad(this.gameObject);
+        EarnedPoints += GivePoints;
+        txtPoints.text = currentPoints.ToString();
     }
-    static private void InstantiateSingleton() {
-        new GameObject("#GameManager", typeof(GameManager));
+        #endregion
+        private void OnEnable() {
+
+        //Debug.Log(Instance.gameObject.name);
+ 
     }
-    #endregion
-    private void Start() {
-        EarnedPoints =  GivePoints;
+    public void delPointsEarned(int pointsToGive) {
+        EarnedPoints(pointsToGive);
     }
-    public void GivePoints() {
-        //currentPoints += pointsToGive;
-        //Debug.Log(pointsToGive + " added. Current points are: " + currentPoints);
+
+    public void GivePoints(int pointsToGive) {
+        currentPoints += pointsToGive;
+        txtPoints.text = currentPoints.ToString();
     }
 
     public void NewHighScore(int score) {
@@ -40,9 +52,5 @@ public class GameManager : MonoBehaviour {
         //TODO: make some sort of visuals and update the visual display
     }
 
-    private void OnGUI() {
-        if(GUI.Button(new Rect(Screen.width / 2-50,5,100,30), "Click")) {
-          //  pointsEarned(50);
-        }
-    }
+    
 }
