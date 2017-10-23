@@ -21,6 +21,7 @@ public class DamageOnCol : MonoBehaviour {
         if (objHealth != null) {
             objHealth.TakeDamage(power);
         }
+        
 
         
     }

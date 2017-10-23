@@ -5,7 +5,7 @@ using UnityEngine;
 public class ObjectPooler : MonoBehaviour {
     public static ObjectPooler current;
     
-    public GameObject pooledObject;
+    
     public int pooledAmount = 20;
     public bool willGrow = true;
 
@@ -15,28 +15,32 @@ public class ObjectPooler : MonoBehaviour {
     private void Awake() {
         current = this;
     }
-    void Start () {
+    public void PoolObjects (GameObject objPrefab) {
         pooledObjects = new List<GameObject>();
         for (int i = 0; i < pooledAmount; i++) {
-            GameObject obj = Instantiate(pooledObject);
+            GameObject obj = Instantiate(objPrefab);
             obj.transform.parent = gameObject.transform;
             obj.SetActive(false);
             pooledObjects.Add(obj);
         }
 	}
 
-    public GameObject GetPooledObjects() {
+    public GameObject GetPooledObjects(GameObject objPrefab) {
         for (int i = 0; i < pooledObjects.Count; i++) {
-            if (!pooledObjects[i].activeInHierarchy) {
-                return pooledObjects[i];
-            }
+            //if(pooledObjects[i] == objPrefab) { // this will make sure it the same type as what the enemy is calling for. 
+                if (!pooledObjects[i].activeInHierarchy) {
+                    return pooledObjects[i];
+                }
+            //}
         }
 
+        /*
         if (willGrow) {
-            GameObject obj = Instantiate(pooledObject);
+            GameObject obj = Instantiate();
             pooledObjects.Add(obj);
             return obj;
-        }
+        }  */
+
 
         return null;
     }

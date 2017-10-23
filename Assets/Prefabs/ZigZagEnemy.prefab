@@ -11,22 +11,6 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 1465810909341428}
   m_IsPrefabParent: 1
---- !u!1 &1056842597325002
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 4438006497812382}
-  - component: {fileID: 114575071833719446}
-  m_Layer: 10
-  m_Name: SingleCannon
-  m_TagString: Untagged
-  m_Icon: {fileID: 7707008975528953803, guid: 0000000000000000d000000000000000, type: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
 --- !u!1 &1366493491303076
 GameObject:
   m_ObjectHideFlags: 0
@@ -57,9 +41,26 @@ GameObject:
   - component: {fileID: 50427213539418702}
   - component: {fileID: 114207094419386136}
   m_Layer: 10
-  m_Name: enemyRed2
+  m_Name: ZigZagEnemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1543664070019832
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4763313059146936}
+  - component: {fileID: 114248894498891126}
+  - component: {fileID: 114510891543850114}
+  m_Layer: 10
+  m_Name: RotatingCannon
+  m_TagString: Untagged
+  m_Icon: {fileID: 7707008975528953803, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -83,27 +84,27 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1465810909341428}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.02, y: 4.31, z: 0}
+  m_LocalPosition: {x: 0.12976664, y: 2.9984076, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4086975784901458}
-  - {fileID: 4438006497812382}
+  - {fileID: 4763313059146936}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &4438006497812382
+--- !u!4 &4763313059146936
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1056842597325002}
-  m_LocalRotation: {x: 0, y: 0, z: 1, w: 0}
-  m_LocalPosition: {x: -0.02, y: -0.7, z: 0}
+  m_GameObject: {fileID: 1543664070019832}
+  m_LocalRotation: {x: -0, y: -0, z: 0.9659258, w: 0.2588191}
+  m_LocalPosition: {x: 0, y: -1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4097252240277464}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 150}
 --- !u!50 &50427213539418702
 Rigidbody2D:
   serializedVersion: 4
@@ -168,7 +169,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1465810909341428}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 847ecdc456fc5fe4fba34e0d10d7d177, type: 3}
   m_Name: 
@@ -189,12 +190,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentHealth: 0
   maxHealth: 10
---- !u!114 &114575071833719446
+--- !u!114 &114248894498891126
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1056842597325002}
+  m_GameObject: {fileID: 1543664070019832}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5252da11a0e58754cb56e9f6e3205174, type: 3}
@@ -202,7 +203,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 1734906429437546, guid: e5e5f85cc55a7fd47a7dc7d85d455f0a,
     type: 2}
-  shootDelay: 0.5
+  shootDelay: 0.2
+--- !u!114 &114510891543850114
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1543664070019832}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd0c4f4a9285b1e47a517c2eb7088188, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxRotation: 90
+  rotSpeed: 2
 --- !u!212 &212992244974076098
 SpriteRenderer:
   m_ObjectHideFlags: 1
