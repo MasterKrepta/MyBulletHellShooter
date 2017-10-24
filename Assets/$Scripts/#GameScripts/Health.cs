@@ -26,10 +26,15 @@ public class Health : MonoBehaviour {
             Die();
         }
     }
-    void Die() {
+    public void Die() {
         //play death animation and sound effects
         
         // Modify the points for each enemy based on health
+        if(this.tag == "Player") {
+            Destroy(this.gameObject);
+            //TODO set up a player respawn system with delegates
+            return;
+        }
         int pointsToGive = (int)(maxHealth * GameManager.Instance.pointModifier);
         GameManager.Instance.delPointsEarned(pointsToGive);
         
