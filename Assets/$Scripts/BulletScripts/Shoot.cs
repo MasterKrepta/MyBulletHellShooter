@@ -5,13 +5,16 @@ using UnityEngine;
 public class Shoot : MonoBehaviour {
     public GameObject bulletPrefab;
     public float shootDelay = .5f;
-    
 
-    void Start () {
-        
-        
+
+    private void OnDisable() {
+        CancelInvoke();
+    }
+    private void OnEnable() {
         InvokeRepeating("ShootForward", shootDelay, shootDelay);
     }
+    
+
     void  ShootForward() {
         PoolingManager.InstantiatePooled(bulletPrefab, transform.position, transform.rotation);
         

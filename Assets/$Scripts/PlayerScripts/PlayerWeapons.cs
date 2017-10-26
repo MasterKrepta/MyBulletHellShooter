@@ -24,6 +24,30 @@ public class PlayerWeapons : MonoBehaviour {
         }
     }
 
+
+    private void Update() {
+        #region DEBUG TOOLS
+        /*
+        if (Input.GetKeyDown(KeyCode.P)) {
+            DisableAllWeapons();
+        }
+        if (Input.GetKeyDown(KeyCode.Q)) {
+            EnableWeapons();
+        }
+        if (Input.GetKeyDown(KeyCode.Y)) {
+            GameManager.Instance.CallPlayerDeath();
+        } */
+#endregion
+    } 
+    private void OnEnable() {
+        GameManager.PlayerDeath += DisableAllWeapons;
+        GameManager.RespawnPlayer += EnableWeapons;
+    }
+    private void OnDisable() {
+        GameManager.PlayerDeath -= DisableAllWeapons;
+        //GameManager.RespawnPlayer -= EnableWeapons;
+    }
+
     public void DowngradeWeapons() {
         if (activeLevel > 1) {
             activeLevel--;
@@ -33,8 +57,35 @@ public class PlayerWeapons : MonoBehaviour {
         }
         else {
             // what consequences should there be to a level one stun?
-            Debug.Log("CAnt disable any... more lucky you!");
+            Debug.Log("Cant disable any... more lucky you!");
         }
 
     }
+     void DisableAllWeapons() {
+        foreach (GameObject go in barrels) {
+            go.SetActive(false);
+        }
+        Debug.Log("WeaponsOffline");
+    }
+    void EnableWeapons() {
+        List<GameObject> activeWeapons = GetWeaponsToActivate();
+        foreach (GameObject go in activeWeapons) {
+            go.SetActive(true);
+        }
+    }
+
+    List<GameObject> GetWeaponsToActivate() {
+        List<GameObject> weaponsToActivate = new List<GameObject>();
+        for (int i = 0; i < barrels.Length; i++) {
+            Debug.Log("i is " + i);
+            if (i < (activeLevel )) {
+                weaponsToActivate.Add(barrels[i]);
+            }
+            else {
+                barrels[i].SetActive(false);
+            }
+        }
+        return weaponsToActivate;
+    }
+    
 }

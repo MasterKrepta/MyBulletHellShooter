@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -18,7 +18,6 @@ public class WaveSpawner : MonoBehaviour {
             Instantiate(enemies[i], transform.position, Quaternion.identity);
             yield return new WaitForSeconds(spawnRate);
         }
-        Debug.Log("we spawned a wave");
-        
+
 	}
 }

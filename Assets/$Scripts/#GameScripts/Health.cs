@@ -9,14 +9,16 @@ public class Health : MonoBehaviour {
     public int maxHealth;
     // Use this for initialization
     private void OnEnable() {
-        //GameManager.EarnedPoints += Die;
+        GameManager.PlayerDeath += Die;
+        GameManager.PlayerDeath += ResetHealth;
+
     }
 
     private void OnDisable() {
-        //GameManager.EarnedPoints -= Die;
+       // GameManager.PlayerDeath -= ResetHealth;
     }
     void Start () {
-        currentHealth = maxHealth;
+        ResetHealth();
 	}
 
     public void TakeDamage(int damage) {
@@ -27,18 +29,28 @@ public class Health : MonoBehaviour {
         }
     }
     public void Die() {
+
         //play death animation and sound effects
-        
-        // Modify the points for each enemy based on health
+
+        #region PlayerHealthCode
+        currentHealth = 0;
         if(this.tag == "Player") {
-            Destroy(this.gameObject);
-            //TODO set up a player respawn system with delegates
+            this.gameObject.SetActive(false);
             return;
         }
+#endregion
+
+        #region EnemyHealthCode
+        // Modify the points for each enemy based on health
         int pointsToGive = (int)(maxHealth * GameManager.Instance.pointModifier);
-        GameManager.Instance.delPointsEarned(pointsToGive);
-        
+        GameManager.Instance.CallEarnedPoints(pointsToGive);
         Destroy(this.gameObject);
-        
+#endregion
     }
+    public void ResetHealth() {
+        
+        currentHealth = maxHealth;
+    }
+
+ 
 }
