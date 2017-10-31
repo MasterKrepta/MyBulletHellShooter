@@ -121,6 +121,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   power: 0
+  hitParticle: {fileID: 1579773028938442, guid: 4cce81ac758023842b42ad86eecf0da3,
+    type: 2}
 --- !u!114 &114661699135502826
 MonoBehaviour:
   m_ObjectHideFlags: 1

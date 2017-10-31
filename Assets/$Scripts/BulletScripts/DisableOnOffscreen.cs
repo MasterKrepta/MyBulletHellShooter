@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DisableOverTime : MonoBehaviour {
+public class DisableOnOffscreen : MonoBehaviour {
 
     // Use this for initialization
     private SpriteRenderer rend;

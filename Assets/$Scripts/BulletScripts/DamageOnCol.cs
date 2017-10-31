@@ -8,6 +8,8 @@ public class DamageOnCol : MonoBehaviour {
     [SerializeField]
     private int power;
 
+    public GameObject hitParticle;
+
     private void Start() {
         col = GetComponent<BoxCollider2D>();
         col.isTrigger = true;
@@ -17,6 +19,10 @@ public class DamageOnCol : MonoBehaviour {
     }
 
     private void OnTriggerEnter2D(Collider2D other) {
+        if(hitParticle != null) {
+            PoolingManager.InstantiatePooled(hitParticle, other.transform.position, Quaternion.identity);
+        }
+        
         Health objHealth = other.GetComponent<Health>();
         if (objHealth != null) {
             objHealth.TakeDamage(power);
