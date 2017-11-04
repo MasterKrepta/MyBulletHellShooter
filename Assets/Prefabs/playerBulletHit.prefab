@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4058630077463416}
   - component: {fileID: 198082254161975962}
   - component: {fileID: 199243795615236318}
-  - component: {fileID: 114278790136086832}
+  - component: {fileID: 114808036729419360}
   m_Layer: 0
   m_Name: playerBulletHit
   m_TagString: Untagged
@@ -42,7 +42,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &114278790136086832
+--- !u!114 &114808036729419360
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -50,9 +50,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1579773028938442}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 94d166faa7cec3047b992b8930a28e49, type: 3}
+  m_Script: {fileID: 11500000, guid: c26b11bd323a5bd4e86cc099fec3179a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lifetime: 0.2
 --- !u!198 &198082254161975962
 ParticleSystem:
   m_ObjectHideFlags: 1
@@ -3351,8 +3352,8 @@ ParticleSystemRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 749294943
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_RenderMode: 0
   m_SortMode: 0
