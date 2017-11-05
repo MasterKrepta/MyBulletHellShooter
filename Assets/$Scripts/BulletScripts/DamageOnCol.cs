@@ -19,7 +19,7 @@ public class DamageOnCol : MonoBehaviour {
     }
 
     private void OnTriggerEnter2D(Collider2D other) {
-        if(hitParticle != null) {
+        if(hitParticle != null && other.tag !="Border") {
             PoolingManager.InstantiatePooled(hitParticle, other.transform.position, Quaternion.identity);
         }
         
