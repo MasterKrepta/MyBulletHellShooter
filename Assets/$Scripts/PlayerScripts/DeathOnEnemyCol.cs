@@ -10,7 +10,7 @@ public class DeathOnEnemyCol : MonoBehaviour {
         }
     private void OnTriggerEnter2D(Collider2D collision) {
         if(collision.tag == "Enemy") {
-            //TODO: use a delegate instead 
+            
             GameManager.Instance.CallPlayerDeath();
         }
     }

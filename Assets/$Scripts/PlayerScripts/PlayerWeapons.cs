@@ -77,7 +77,7 @@ public class PlayerWeapons : MonoBehaviour {
     List<GameObject> GetWeaponsToActivate() {
         List<GameObject> weaponsToActivate = new List<GameObject>();
         for (int i = 0; i < barrels.Length; i++) {
-            Debug.Log("i is " + i);
+            //Debug.Log("i is " + i);
             if (i < (activeLevel )) {
                 weaponsToActivate.Add(barrels[i]);
             }

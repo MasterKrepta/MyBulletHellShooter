@@ -10,17 +10,34 @@ public  class GameManager : MonoBehaviour {
     public float pointModifier = 1.0f;
     public Text txtPoints;
     private int currentPoints;
+    private int currentCredits;
+    public Text txtCredits;
     public int playerLives;
     public int maxLives = 3;
+    //PlayerProgression progression;
+
     //private int highScore = 0;
     public delegate void PlayerEvents(int pointsToGive);
     public static event PlayerEvents EarnedPoints;
+    public static event PlayerEvents EarnedCredits;
+    public static event PlayerEvents UpdateProgress;
     public delegate void PlayerHealthEvents();
     public static event PlayerHealthEvents PlayerDeath;
     public static event PlayerHealthEvents RespawnPlayer;
     public static event PlayerHealthEvents GameOver;
-    #endregion
 
+    public delegate void LootEvents();
+    public static event  LootEvents SpawnLoot;
+
+
+    #endregion
+    private void OnEnable() {
+        EarnedCredits += GiveCredits;
+    }
+
+    private void OnDisable() {
+        EarnedCredits -= GiveCredits;
+    }
 
     #region Singleton
     private static GameManager instance = null;
@@ -44,15 +61,33 @@ public  class GameManager : MonoBehaviour {
 
     private void Start() {
         playerLives = maxLives;
+        //progression = GetComponent<PlayerProgression>();
     }
 
     public void CallEarnedPoints(int pointsToGive) {
         EarnedPoints(pointsToGive);
     }
 
+    public void CallSpawnLoot() {
+        SpawnLoot();
+    }
+
+    public void CallEarnedCredits(int CreditsToGive) {
+        EarnedCredits(CreditsToGive);
+    }
+
+    public void CallUpdateProgress(int creditsEarned) {
+        UpdateProgress(creditsEarned);
+    }
+
     public void GivePoints(int pointsToGive) {
         currentPoints += pointsToGive;
         txtPoints.text = currentPoints.ToString();
+    }
+
+    public void GiveCredits(int creditsToGive) {
+        currentCredits += creditsToGive;
+        txtCredits.text = currentCredits.ToString();
     }
 
     public void NewHighScore(int score) {
@@ -61,27 +96,24 @@ public  class GameManager : MonoBehaviour {
     }
 
     public void CallPlayerDeath() {
-        //TODO Take away a life from the player and update the display
         PlayerDeath();
         bool lastLife = LoseLife();
         if (!lastLife) {
             StartCoroutine(WaitForRespawn());
-            //ASK THE GAME DEV GROUP WHY YOU CANT CALL THE DELEGATE HERE!!! CONFUSED!!!!!!!
-            //based on docs... I think wait for seconds is only affective inside a coroutine.
+            //TODO update life display
         }
         else {
             CallGameOver();
         }
-
-
-
     }
+
     public void CallGameOver() {
         GameOver();
     }
 
 
-    IEnumerator WaitForRespawn() {
+
+        IEnumerator WaitForRespawn() {
         yield return new WaitForSeconds(respawnTime);
         //Debug.Log("Calling the delegate");
         RespawnPlayer();
@@ -96,5 +128,4 @@ public  class GameManager : MonoBehaviour {
         }
         return isGameOver;
     }
-
 }
