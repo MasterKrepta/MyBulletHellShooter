@@ -5,7 +5,7 @@ using UnityEngine;
 public class RotateTurretOverTime : MonoBehaviour {
 
     [SerializeField]
-    private float maxRotation;
+    private float maxRotation = 360;
     [SerializeField]
     private float rotSpeed = 10;
 
