@@ -23,10 +23,14 @@ public class DropLoot : MonoBehaviour {
             return;
         }
         else {
-            for (int i = 0; i <= qtyToSpawn; i++) {
-                PoolingManager.InstantiatePooled(lootPrefab, transform.position, Quaternion.identity);
+            for (int i = 0; i < qtyToSpawn; i++) {
+                Debug.Log("spawned");
+                PoolingManager.InstantiatePooled(lootPrefab, transform.position, transform.rotation);
+                //Instantiate(lootPrefab, transform.position, transform.rotation);
             }
         }
         
     }
+
+
 }

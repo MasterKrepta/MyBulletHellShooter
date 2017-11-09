@@ -5,8 +5,8 @@ using UnityEngine;
 public class Loot : MonoBehaviour {
 
     int value = 5;
-    private enum  lootTypes {
-        basic, twoXMulti, platnum 
+    private enum  LootTypes {
+        BASIC, TWOX, PLATNUM
     };
 
     public void GenRandomLootType() {

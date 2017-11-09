@@ -201,8 +201,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42dd6b3aba2058d4f92e3478dc898655, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lootPrefab: {fileID: 0}
-  value: 0
+  lootPrefab: {fileID: 1862055233072038, guid: 59e91b6f85d393d42bd9dead6dd7aada, type: 2}
+  qtyToSpawn: 3
 --- !u!114 &114575071833719446
 MonoBehaviour:
   m_ObjectHideFlags: 1
