@@ -4,7 +4,7 @@ using UnityEngine;
 [RequireComponent (typeof(MoveForward))]
 public class RandomSpeed : MonoBehaviour {
 
-    int randomSpeed;
+    float randomSpeed;
     MoveForward moveScript;
 	
     // Use this for initialization
@@ -16,7 +16,7 @@ public class RandomSpeed : MonoBehaviour {
 	}
 
     void GetRandomSpeed() {
-        randomSpeed = Random.Range(1, 3);
+        randomSpeed = Random.Range(.5f, 2f);
     }
 	
 
