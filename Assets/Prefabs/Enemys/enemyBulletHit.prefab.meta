@@ -1,8 +1,6 @@
 fileFormatVersion: 2
-guid: f4c86cd90eac9724fa5dd2e903d997cf
-labels:
-- Blueprint
-timeCreated: 1510090567
+guid: bb40a721d0648ec499949f13ed6c7987
+timeCreated: 1509483352
 licenseType: Free
 NativeFormatImporter:
   mainObjectFileID: 100100000

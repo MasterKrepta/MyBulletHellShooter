@@ -1,5 +1,7 @@
 fileFormatVersion: 2
 guid: b05743f9c86592a4589551a4e73bf25d
+labels:
+- Blueprint
 timeCreated: 1508097468
 licenseType: Free
 NativeFormatImporter:

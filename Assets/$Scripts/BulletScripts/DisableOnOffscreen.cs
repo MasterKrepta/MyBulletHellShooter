@@ -8,7 +8,7 @@ public class DisableOnOffscreen : MonoBehaviour {
     private SpriteRenderer rend;
     private void OnEnable() {
         rend = GetComponentInChildren<SpriteRenderer>();
-
+        
     }
 
     private void Update() {

@@ -14,7 +14,7 @@ public class ZigZag : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if(myTransform.position.y <= 0) {
-            transform.rotation =  Quaternion.EulerAngles(-angle); //TODO this is not perfect
+            transform.rotation =  Quaternion.Euler(-angle); //TODO this is not perfect
         }
 	}
 }
