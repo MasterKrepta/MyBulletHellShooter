@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 50962410496576220}
   - component: {fileID: 114630286821997858}
   - component: {fileID: 114349634883153084}
-  - component: {fileID: 114095699884302430}
+  - component: {fileID: 114474571054159134}
   m_Layer: 10
   m_Name: Interceptor
   m_TagString: Enemy
@@ -48,6 +48,21 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1880167950113786
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4288050063135136}
+  m_Layer: 10
+  m_Name: Checkpoint
+  m_TagString: Untagged
+  m_Icon: {fileID: -1577725955494882426, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1965389349049730
 GameObject:
   m_ObjectHideFlags: 0
@@ -65,6 +80,19 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!4 &4288050063135136
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1880167950113786}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4417589298927752}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4417589298927752
 Transform:
   m_ObjectHideFlags: 1
@@ -77,6 +105,7 @@ Transform:
   m_Children:
   - {fileID: 4547975560695854}
   - {fileID: 4688149373325188}
+  - {fileID: 4288050063135136}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -151,20 +180,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.47225326, y: 0.84}
   m_EdgeRadius: 0
---- !u!114 &114095699884302430
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1074639658098378}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 88bf644306ef0e24a8c8c9ddea386692, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  turnArroundThreshold: {x: 0, y: -3, z: 0}
-  hookPos: {x: 1, y: -2, z: 0}
-  rotSpeed: 30
 --- !u!114 &114113993564923420
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -191,6 +206,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lootPrefab: {fileID: 1862055233072038, guid: 59e91b6f85d393d42bd9dead6dd7aada, type: 2}
   qtyToSpawn: 3
+--- !u!114 &114474571054159134
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1074639658098378}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47d5cdd0820388c48af32fc476144f76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  checkpoints: []
 --- !u!114 &114630286821997858
 MonoBehaviour:
   m_ObjectHideFlags: 1
