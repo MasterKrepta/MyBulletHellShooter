@@ -61,6 +61,7 @@ public  class GameManager : MonoBehaviour {
 
     private void Start() {
         playerLives = maxLives;
+        txtCredits.text = "0";
         //progression = GetComponent<PlayerProgression>();
     }
 
