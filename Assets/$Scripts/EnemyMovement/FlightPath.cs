@@ -61,7 +61,7 @@ public class FlightPath : MonoBehaviour {
             moveForward.enabled = true;
             //moveForward.directionMod = 1;
             lastCheckpoint = true;
-            Debug.Log("max checkpoint");
+            //Debug.Log("max checkpoint");
         }
             
     }

@@ -57,6 +57,7 @@ GameObject:
   - component: {fileID: 114246982583112138}
   - component: {fileID: 114581330942257990}
   - component: {fileID: 114266994454247026}
+  - component: {fileID: 114768763539808408}
   m_Layer: 10
   m_Name: ZigZagEnemy
   m_TagString: Enemy
@@ -84,7 +85,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1874997282714092}
   m_LocalRotation: {x: 0, y: 0, z: 0.38268343, w: 0.92387956}
-  m_LocalPosition: {x: -2.44, y: 3.64, z: 0}
+  m_LocalPosition: {x: -2.4945943, y: 4.026362, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4047356287635370}
@@ -205,6 +206,7 @@ MonoBehaviour:
   numRounds: 3
   fireRate: 2
   burstRate: 0.2
+  intitialFireRate: 0.75
 --- !u!114 &114581330942257990
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -214,6 +216,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 06820355ace08c34b95a54bad6c02776, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114768763539808408
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1874997282714092}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16c3a37484383da45adc40dfc5027e3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!212 &212706765745403770

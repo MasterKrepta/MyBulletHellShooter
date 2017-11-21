@@ -11,9 +11,6 @@ public class DisableOnOffscreen : MonoBehaviour {
         
     }
 
-    private void Update() {
-        
-    }
     private void OnTriggerEnter2D(Collider2D other) {
         gameObject.SetActive(false);
     }

@@ -148,6 +148,7 @@ GameObject:
   - component: {fileID: 114237488075742946}
   - component: {fileID: 114828321758798512}
   - component: {fileID: 114351180808887990}
+  - component: {fileID: 114453512588313642}
   m_Layer: 10
   m_Name: Interceptor
   m_TagString: Enemy
@@ -203,7 +204,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1793755282884984}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.93, y: 4.45, z: 0}
+  m_LocalPosition: {x: -2.4945943, y: 3.763774, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4163715074180282}
@@ -340,7 +341,8 @@ MonoBehaviour:
     type: 2}
   numRounds: 5
   fireRate: 2
-  burstRate: 0.1
+  burstRate: 0.2
+  intitialFireRate: 1
 --- !u!114 &114237488075742946
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -386,6 +388,17 @@ MonoBehaviour:
   - {fileID: 4498350615750748}
   nextCheckpoint: {fileID: 0}
   speed: 2
+--- !u!114 &114453512588313642
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1879299422749784}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16c3a37484383da45adc40dfc5027e3f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114828321758798512
 MonoBehaviour:
   m_ObjectHideFlags: 1

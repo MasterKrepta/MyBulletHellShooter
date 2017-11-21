@@ -57,6 +57,7 @@ GameObject:
   - component: {fileID: 50427213539418702}
   - component: {fileID: 114207094419386136}
   - component: {fileID: 114520801648469396}
+  - component: {fileID: 114690561903978508}
   m_Layer: 10
   m_Name: EnemyBlueprint
   m_TagString: Enemy
@@ -217,6 +218,17 @@ MonoBehaviour:
   bulletPrefab: {fileID: 1734906429437546, guid: e5e5f85cc55a7fd47a7dc7d85d455f0a,
     type: 2}
   shootDelay: 0.5
+--- !u!114 &114690561903978508
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1465810909341428}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16c3a37484383da45adc40dfc5027e3f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &212992244974076098
 SpriteRenderer:
   m_ObjectHideFlags: 1

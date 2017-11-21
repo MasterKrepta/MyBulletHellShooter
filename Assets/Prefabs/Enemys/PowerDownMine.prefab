@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 212285860188226268}
   - component: {fileID: 61762497546587206}
   - component: {fileID: 114743295209729818}
+  - component: {fileID: 114080833151195898}
   m_Layer: 10
   m_Name: PowerDownMine
   m_TagString: Untagged
@@ -67,6 +68,17 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.19, y: 0.3}
   m_EdgeRadius: 0
+--- !u!114 &114080833151195898
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1464119915025600}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16c3a37484383da45adc40dfc5027e3f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114743295209729818
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -108,7 +120,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -996204075
-  m_SortingLayer: 4
+  m_SortingLayer: -3
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: a98f50d93abc47a4aac07dc1d7b31668, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

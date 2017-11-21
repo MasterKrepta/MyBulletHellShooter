@@ -7,17 +7,34 @@ public class AimAtPlayer : MonoBehaviour {
     public Transform target;
     public float trackingSpeed = 30f;
 
-	// Use this for initialization
-	void Start () {
-        try {
+    // Use this for initialization
+    private void Start() {
+        TakeAim();
+    }
+    private void OnEnable() {
+        GameManager.PlayerDeath += TargetLostOnPlayerDeath;
+        GameManager.RespawnPlayer += TakeAim;
+    }
+
+    private void OnDisable() {
+        GameManager.PlayerDeath -= TargetLostOnPlayerDeath;
+        GameManager.RespawnPlayer -= TakeAim;
+    }
+    void  TakeAim() {
+        //try {
             target = GameObject.FindWithTag("Player").transform;
-        }
-        catch {
-            Debug.Log("player cant be set so disable");
-            this.gameObject.SetActive(false); // hack to disable if we are between spawns. 
-                                              // should TODO this as an event to stop all weapons from firing until player respawns
-        }
-	}
+        Debug.Log("target aquired");
+        //}
+        //catch {
+        // Debug.Log("player cant be set so disable");
+        //  this.gameObject.SetActive(false); // hack to disable if we are between spawns. 
+        // should TODO this as an event to stop all weapons from firing until player respawns
+        //}
+    }
+    void TargetLostOnPlayerDeath() {
+        this.gameObject.SetActive(false);
+        Debug.Log("disabled because the player died");
+    }
 	
 	// Update is called once per frame
 	void Update () {

@@ -105,6 +105,7 @@ GameObject:
   - component: {fileID: 50213680665117574}
   - component: {fileID: 114673162500190280}
   - component: {fileID: 114681801943730254}
+  - component: {fileID: 114771790452484496}
   m_Layer: 10
   m_Name: Spinning Disk
   m_TagString: Enemy
@@ -349,6 +350,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lootPrefab: {fileID: 1862055233072038, guid: 59e91b6f85d393d42bd9dead6dd7aada, type: 2}
   qtyToSpawn: 3
+--- !u!114 &114771790452484496
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1721151552720574}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16c3a37484383da45adc40dfc5027e3f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &212453050294018260
 SpriteRenderer:
   m_ObjectHideFlags: 1

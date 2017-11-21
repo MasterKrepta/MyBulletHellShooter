@@ -10,11 +10,12 @@ public class BurstFireCannon : MonoBehaviour
     public float numRounds = 3;
     public float fireRate = 3;
     public float burstRate = .5f;
+    public float intitialFireRate = .75f;
     
     float time = 0;
     // Use this for initialization
     void Start() {
-        time = fireRate;
+        time = intitialFireRate;
         
     }
 
