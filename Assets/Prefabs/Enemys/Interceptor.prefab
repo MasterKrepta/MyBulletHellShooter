@@ -218,6 +218,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   checkpoints: []
+  nextCheckpoint: {fileID: 0}
+  speed: 2
 --- !u!114 &114630286821997858
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -258,7 +260,7 @@ MonoBehaviour:
   bulletPrefab: {fileID: 1734906429437546, guid: e5e5f85cc55a7fd47a7dc7d85d455f0a,
     type: 2}
   numRounds: 5
-  fireRate: 2
+  fireRate: 0.7
   burstRate: 0.1
 --- !u!212 &212766031533856778
 SpriteRenderer:

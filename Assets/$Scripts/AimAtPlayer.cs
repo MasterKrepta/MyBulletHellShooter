@@ -9,7 +9,14 @@ public class AimAtPlayer : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		
+        try {
+            target = GameObject.FindWithTag("Player").transform;
+        }
+        catch {
+            Debug.Log("player cant be set so disable");
+            this.gameObject.SetActive(false); // hack to disable if we are between spawns. 
+                                              // should TODO this as an event to stop all weapons from firing until player respawns
+        }
 	}
 	
 	// Update is called once per frame

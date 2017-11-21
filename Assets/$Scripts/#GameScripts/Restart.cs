@@ -11,6 +11,9 @@ public class Restart : MonoBehaviour {
         if(player == null) {
             player = FindObjectOfType<PlayerMovement>().gameObject;
         }
+        if (playerRespawnPoint == null) {
+            Debug.LogWarning("No Respawn Detected, set it in the Inspecter");
+        }
         GameManager.RespawnPlayer += RespawnPlayer;
     }
 
